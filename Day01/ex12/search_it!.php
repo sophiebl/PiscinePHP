@@ -17,5 +17,4 @@ foreach ($argv as $key => $value) {
 	}
 }
 
-
 ?>
