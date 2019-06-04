@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<title>Jquery</title>
+	<style>
+    body{background-color: #FFEB3B;}
+	#ballon {
+		width: 200px;
+		height: 200px;
+		border-radius: 100%;
+		background-color: red;
+        margin: 40% auto;
+	}
+	</style>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<div id="ballon">
+		
+	</div>
+</body>
+
+    <script>
+        var color = {0: 'red', 1: 'green', 2: 'blue'};
+        var colorIndex = 0;
+        var ballon;
+        var size = 200;
+        $(document).ready(function(){
+            ballon = $('#ballon');
+            ballon.click(Click);
+            ballon.mouseleave(Mouse);
+        })
+        function Mouse(){
+            size -= 5;
+            if (size < 200) {
+                size = 200;
+            }
+            colorIndex--;
+            if (colorIndex < 0) {
+                colorIndex = 2;
+            }
+            ballonRefresh(colorIndex);
+        }
+        function Click() {
+            size += 10;
+            if (size > 420) {
+                size = 200;
+            }
+            colorIndex++;
+            if (colorIndex > 2) {
+                colorIndex = 0;
+            }
+            ballonRefresh(colorIndex);
+        }
+        function ballonRefresh(colorIndex){
+            ballon.css('height', size);
+            ballon.css('width', size);
+            ballon.css('backgroundColor', color[colorIndex]);
+        }
+    </script>
+
+</html>
