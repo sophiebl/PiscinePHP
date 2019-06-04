@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title>Jquery</title>
+	<style>
+	form {
+		width: 400px;
+		height: 200px;
+		margin: 100px auto;
+	}
+</style>
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+</head>
+<body>
+	<form>
+		<input type="text" name="left" id="left" value="">
+		<select>
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select>
+		<input type="text" name="right" id="right" value="">
+	</form>
+	<button id="button" name="Try me" onclick="Calc(this);">Try me!</button>
+</body>
+<script>
+      function Calc(calcul) {
+        var nb1 = parseInt($("#left").val());
+        var nb2 = parseInt($("#right").val());
+        if (nb1 < 0 || nb2 < 0 || isNaN(nb1) || isNaN(nb2)){
+          alert("Error :(");
+          return;}
+        var symb = $('select').val();
+        if (symb == "+"){
+          res = nb1 + nb2;
+                 console.log(nb1);
+        console.log(nb2);
+          console.log(res);
+          alert(res);}
+        else if (symb == "-"){
+          res = nb1 - nb2;
+          console.log(res);
+          alert(res);}
+        else if (symb == "*"){
+          res = nb1 * nb2;
+          console.log(res);
+          alert(res);}
+        else if (symb == "/"){
+          if (nb2 == 0)
+            res = "It's over 9000!";
+          else
+            res = nb1 / nb2;
+          console.log(res);
+          alert(res);}
+        else if (symb == "%"){
+          if (nb2 == 0)
+            res = "It's over 9000!";
+          else
+            res = nb1 % nb2;
+          console.log(res);
+          alert(res);}
+        }
+        window.setInterval(function(){
+          alert("Please, use me...");
+      }, 30000);
+</script>
+</html>
