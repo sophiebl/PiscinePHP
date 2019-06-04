@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+	<title>Javascript</title>
+	<style>
+	body{background-color: aqua;}
+	#ballon {
+		width: 200px;
+		height: 200px;
+		border-radius: 100%;
+		margin: 40% auto;
+	}
+	</style>
+</head>
+<body>
+	<div id="ballon" style='background-color: red'>
+		
+	</div>
+</body>
+<script>
+	var el = document.getElementById("ballon");	
+	el.addEventListener("click", function(){
+		var height = el.offsetHeight;
+		var width = el.offsetWidth;
+		if (height <= 410 && width <= 410)
+		{
+			var newHeight = height + 10;
+			el.style.height = newHeight + 'px';
+			var newWidth = width + 10;
+			el.style.width = newWidth + 'px';
+		} else if (height == 420 && width == 420)
+		{
+			var newHeight = 200;
+			el.style.height = newHeight + 'px';
+			var newWidth = width + 10;
+			el.style.width = 200 + 'px';			
+		}
+		if (el.style.backgroundColor == "red")
+			el.style.backgroundColor = "green";
+		else if (el.style.backgroundColor == "green")
+			el.style.backgroundColor = "blue";
+		else if (el.style.backgroundColor == "blue")
+			el.style.backgroundColor = "red";
+	});
+	el.addEventListener("mouseout", function(){
+		var height = el.offsetHeight;
+		var width = el.offsetWidth;
+		if (height <= 420 && width <= 420 && height >= 205 && width >= 205)
+		{
+			var newHeight = height - 5;
+			el.style.height = newHeight + 'px';
+			var newWidth = width - 5;
+			el.style.width = newWidth + 'px'; 
+		}
+		if (el.style.backgroundColor == "blue")
+			el.style.backgroundColor = "green";
+		else if (el.style.backgroundColor == "green")
+			el.style.backgroundColor = "red";
+		else if (el.style.backgroundColor == "red")
+			el.style.backgroundColor = "blue";
+	});
+</script>
+</html>
